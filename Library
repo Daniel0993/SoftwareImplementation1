@@ -1,0 +1,166 @@
+// Book class to represent individual books
+public class Main {
+    private String title;
+    private String author;
+    private String barcode;
+    private String genre;
+    private String status;
+    private String dueDate;
+
+    // Constructor for Book class
+    public Main(String title, String author, String barcode, String genre) {
+        this.title = title;
+        this.author = author;
+        this.barcode = barcode;
+        this.genre = genre;
+        this.status = "Available";
+        this.dueDate = "";
+    }
+
+    // Getters and setters for Book class properties
+    // ...
+
+    // Additional methods as needed
+    // ...
+}
+
+import java.util.ArrayList;
+
+
+public class Library {
+    private ArrayList<Main> books;
+
+    public Library() {
+        this.books = new ArrayList<>();
+    }
+
+    public void addBook(Main book) {
+        // Implement code to add a book to the library
+    }
+
+    public void removeBookByBarcode(String barcode) {
+        // Implement code to remove a book by barcode
+    }
+
+    public void removeBookByTitle(String title) {
+        // Implement code to remove a book by title
+    }
+
+    public void checkOutBookByTitle(String title) {
+        // Implement code to check out a book by title
+    }
+
+    public void checkInBookByTitle(String title) {
+        // Implement code to check in a book by title
+    }
+
+    public void displayDatabase() {
+        // Implement code to display the contents of the database
+    }
+
+    // Other methods for Library operations
+
+    // ...
+}
+
+
+
+import java.util.Scanner;
+
+public class LMSApplication {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Library library = new Library();
+
+        // Display program information
+        System.out.println("Library Management System by [Your Name]");
+        System.out.println("Course: [Your Course]");
+        System.out.println("Date: [Date]");
+
+        // Ask the user for a file name and read books from the file
+        System.out.print("Enter the file name: ");
+        String fileName = scanner.nextLine();
+        loadBooksFromFile(library, fileName);
+
+        // Display the initial database
+        System.out.println("Initial Library Database:");
+        library.displayDatabase();
+
+        // Menu for user interactions
+        while (true) {
+            System.out.println("\nChoose an option:");
+            System.out.println("1. Remove a book by barcode");
+            System.out.println("2. Remove a book by title");
+            System.out.println("3. Check out a book by title");
+            System.out.println("4. Check in a book by title");
+            System.out.println("5. Exit");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    // Ask the user for a barcode to remove
+                    System.out.print("Enter barcode to remove: ");
+                    String barcodeToRemove = scanner.nextLine();
+                    removeBookByBarcode(library, barcodeToRemove);
+                    break;
+                case 2:
+                    // Ask the user for a title to remove
+                    System.out.print("Enter title to remove: ");
+                    String titleToRemove = scanner.nextLine();
+                    removeBookByTitle(library, titleToRemove);
+                    break;
+                case 3:
+                    // Ask the user for a title to check out
+                    System.out.print("Enter title to check out: ");
+                    String titleToCheckOut = scanner.nextLine();
+                    checkOutBookByTitle(library, titleToCheckOut);
+                    break;
+                case 4:
+                    // Ask the user for a title to check in
+                    System.out.print("Enter title to check in: ");
+                    String titleToCheckIn = scanner.nextLine();
+                    checkInBookByTitle(library, titleToCheckIn);
+                    break;
+                case 5:
+                    System.out.println("Exiting Library Management System. Goodbye!");
+                    saveBooksToFile(library, fileName); // Save the database to the file before exiting
+                    scanner.close();
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+
+    // Load books from a file and add them to the library
+    private static void loadBooksFromFile(Library library, String fileName) {
+        // Implement code to load books from a file and add them to the library
+    }
+
+    // Remove a book by barcode
+    private static void removeBookByBarcode(Library library, String barcode) {
+        // Implement code to remove a book by barcode
+    }
+
+    // Remove a book by title
+    private static void removeBookByTitle(Library library, String title) {
+        // Implement code to remove a book by title
+    }
+
+    // Check out a book by title
+    private static void checkOutBookByTitle(Library library, String title) {
+        // Implement code to check out a book by title
+    }
+
+    // Check in a book by title
+    private static void checkInBookByTitle(Library library, String title) {
+        // Implement code to check in a book by title
+    }
+
+    // Save books from the library to a file
+    private static void saveBooksToFile(Library library, String fileName) {
+        // Implement code to save books to a file (if needed)
+    }
+}
